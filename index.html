@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Proposal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/ba/6c/6f/ba6c6f1291b1643378878eb41fef94c7.jpg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h1, p {
+            color: white;
+        }
+
+        #mountainImage {
+            display: none; /* Hide the image tag since it's now the background */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #floatingNo {
+            display: none;
+            position: fixed;
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 255, 0.3); /* Sheer blue background color for the bubble */
+            border-radius: 20px; /* Round the corners of the bubble */
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Dildar Singh!</h1>
+    <p>Would you like to go on a vacation with me?</p>
+    <button id="yesButton" onclick="showResponse('yes')">Yes</button>
+    <button id="noButton" onclick="showFloatingResponse('no')">No</button>
+    <div id="floatingNo">No</div>
+
+    <script>
+        function showResponse(answer) {
+            alert('You chose: ' + answer);
+        }
+
+        function showFloatingResponse(answer) {
+            var floatingNo = document.getElementById('floatingNo');
+            floatingNo.style.display = 'block';
+
+            // Animate the "No" button with a slower interval (e.g., 300 milliseconds)
+            var interval = setInterval(function() {
+                var xPos = Math.random() * window.innerWidth;
+                var yPos = Math.random() * window.innerHeight;
+                floatingNo.style.left = xPos + 'px';
+                floatingNo.style.top = yPos + 'px';
+            }, 300); // Adjust the interval (milliseconds) for slower movement
+
+            // Stop animation after 3 seconds
+            setTimeout(function() {
+                clearInterval(interval);
+                floatingNo.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
