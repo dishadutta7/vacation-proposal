@@ -15,6 +15,7 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+            color: white;
         }
 
         h1, p {
@@ -52,7 +53,12 @@
 
     <script>
         function showResponse(answer) {
-            alert('You chose: ' + answer);
+            if (answer === 'yes') {
+                // Display a link to the Spotify song
+                alert('5 Days to go Onboard, Until then I love you so much more than I miss you and I can\'t wait to see you! Listen to the song: Until I found you on Spotify.');
+            } else {
+                alert('You chose: ' + answer);
+            }
         }
 
         function showFloatingResponse(answer) {
